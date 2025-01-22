@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /**
+ *
+ * https://leetcode.com/problems/sum-of-subarray-minimums/
+ *
+ *
  * arr = [3, 1, 2, 4]
  *
  *
@@ -78,7 +82,7 @@ import java.util.Stack;
  *
  * 82 * (3 - 2) * (2 - 1) = 82 * 1 = 82
  *
- * 5 * (4 - 3) * (3 - 1) = 55 * 2
+ * 55 * (4 - 3) * (3 - 1) = 55 * 2
  */
 public class SumOfMinimumElementsOfSubArrays {
 
@@ -91,7 +95,7 @@ public class SumOfMinimumElementsOfSubArrays {
         Arrays.fill(rightMinIndex, arr.length);
 
         for (int i = 0; i < arr.length; i++) {
-            while (!s.isEmpty() && arr[s.peek()] >= arr[i]) {
+            while (!s.isEmpty() && arr[s.peek()] > arr[i]) {
                 s.pop();
             }
             if (!s.isEmpty()) {
@@ -119,7 +123,7 @@ public class SumOfMinimumElementsOfSubArrays {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{11,81,94,43,3};
+        int[] arr = new int[]{71,55,82,55};
         SumOfMinimumElementsOfSubArrays sumOfMinimumElementsOfSubArrays = new SumOfMinimumElementsOfSubArrays();
         sumOfMinimumElementsOfSubArrays.minSumOfSubArray(arr);
     }
